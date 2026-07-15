@@ -335,14 +335,14 @@ The framework intentionally avoids turning every click, wait, and text entry int
 
 The framework was developed and validated against the Android and iOS versions of the Sauce Labs Swag Labs sample application.
 
-Application binaries are intentionally not included in this repository.
-
-The application must already be installed on the target Android and iOS devices. The framework starts the installed application using:
+The framework does not install the application. It expects the app to already be installed on the target Android and iOS devices and starts it using:
 
 - Android package and activity identifiers,
 - the iOS bundle identifier.
 
-It does not install the application through an Appium `app` capability.
+The Swag Labs application is published in the archived [saucelabs/sample-app-mobile](https://github.com/saucelabs/sample-app-mobile) repository. The Android APK is available directly from its releases; the iOS version is no longer maintained and must be built and signed from source to run on a physical device.
+
+The framework itself is application-agnostic. The app under test is defined entirely by configuration, and all application-specific knowledge is isolated in the Page Objects and test data. Adapting the framework to a different application means supplying new identifiers, page objects, and test data — the driver management, server lifecycle, logging, artifact, and reporting layers remain unchanged.
 
 ---
 
