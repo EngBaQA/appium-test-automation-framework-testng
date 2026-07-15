@@ -1,0 +1,31 @@
+{
+  "errorMessages": {
+    "invalidCredentials": "Username and password do not match any user in this service.",
+    "usernameRequired": "Username is required",
+    "passwordRequired": "Password is required",
+    "lockedOut": "Sorry, this user has been locked out."
+  },
+  "pageTitles": {
+    "products": "PRODUCTS",
+    "cart": "YOUR CART",
+    "checkoutInfo": "CHECKOUT: INFORMATION",
+    "checkoutOverview": "CHECKOUT: OVERVIEW",
+    "checkoutComplete": "CHECKOUT: COMPLETE!"
+  },
+  "products": [
+    {"title": "Sauce Labs Backpack",              "price": "$29.99"},
+    {"title": "Sauce Labs Bike Light",            "price": "$9.99"},
+    {"title": "Sauce Labs Bolt T-Shirt",          "price": "$15.99"},
+    {"title": "Sauce Labs Fleece Jacket",         "price": "$49.99"},
+    {"title": "Sauce Labs Onesie",                "price": "$7.99"},
+    {"title": "Test.allTheThings() T-Shirt (Red)","price": "$15.99"}
+  ],
+  "cartItems": {
+    "itemName": "Sauce Labs Backpack",
+    "itemPrice": "$29.99",
+    "itemQuantity": "1"
+  },
+  "checkoutComplete": {
+    "thankYouText": "THANK YOU FOR YOU ORDER"
+  }
+}

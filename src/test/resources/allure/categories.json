@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Infrastructure / Appium Session",
+    "matchedStatuses": ["broken", "failed"],
+    "traceRegex": "(?s).*(SessionNotCreatedException|NoSuchSessionException|UnreachableBrowserException|socket hang up|device offline|ECONNREFUSED|instrumentation|WebDriverAgent).*"
+  },
+  {
+    "name": "Automation / Element Interaction",
+    "matchedStatuses": ["broken", "failed"],
+    "traceRegex": "(?s).*(NoSuchElementException|TimeoutException|StaleElementReferenceException|ElementClickInterceptedException).*"
+  },
+  {
+    "name": "Product / Assertion Failure",
+    "matchedStatuses": ["failed"],
+    "traceRegex": "(?s).*AssertionError.*"
+  }
+]

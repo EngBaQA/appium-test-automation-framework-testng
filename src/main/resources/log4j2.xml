@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSSXXX}] [%X{platform}] [%X{deviceId}] [session:%X{sessionId}] [%t] [%-5level] %c{1} - %msg%n"/>
+        </Console>
+
+        <!--
+            RoutingAppender routes each log record to a platform-specific file under the run directory.
+            Route key: ctx:platform (android / ios)
+            Falls back to "default" key (suite.log) when ThreadContext is not yet populated
+            (e.g. during AppiumServerManager startup before any driver session exists).
+        -->
+        <Routing name="Routing">
+            <Routes pattern="$${ctx:platform:-default}">
+
+                <Route key="default">
+                    <File name="suite-log"
+                          fileName="test-output/${sys:runId:-default}/logs/suite.log"
+                          append="true">
+                        <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSSXXX}] [%t] [%-5level] %c{1} - %msg%n"/>
+                    </File>
+                </Route>
+
+                <Route>
+                    <RollingFile name="Rolling-${ctx:platform}"
+                                 fileName="test-output/${sys:runId:-default}/logs/${ctx:platform}-execution.log"
+                                 filePattern="test-output/${sys:runId:-default}/logs/${ctx:platform}-execution-%i.log">
+                        <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSSXXX}] [%X{platform}] [%X{deviceId}] [session:%X{sessionId}] [%t] [%-5level] %c{1} - %msg%n"/>
+                        <Policies>
+                            <SizeBasedTriggeringPolicy size="10 MB"/>
+                        </Policies>
+                        <DefaultRolloverStrategy max="5"/>
+                    </RollingFile>
+                </Route>
+
+            </Routes>
+        </Routing>
+
+    </Appenders>
+
+    <Loggers>
+
+        <!-- Suppress noisy internal logs from Appium, Selenium and Netty -->
+        <Logger name="io.appium" level="WARN" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.openqa.selenium" level="WARN" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="io.netty" level="WARN" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Routing"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>

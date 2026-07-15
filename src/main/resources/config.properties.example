@@ -1,0 +1,17 @@
+# Copy this file to config.properties and adjust values for your machine.
+
+# Node.js binary and Appium main.js used to start the Appium server programmatically
+nodePath=/path/to/node
+appiumMainJsPath=/path/to/appium/build/lib/main.js
+
+# Android
+androidAutomationName=UiAutomator2
+androidAppPackage=com.swaglabsmobileapp
+androidAppActivity=com.swaglabsmobileapp.SplashActivity
+androidSystemPort=8200
+
+# iOS
+iOSAutomationName=XCUITest
+iOSBundleId=YOUR_IOS_BUNDLE_ID
+iOSWdaLocalPort=8100
+iOSMjpegServerPort=9100

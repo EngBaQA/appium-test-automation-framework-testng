@@ -1,0 +1,29 @@
+### Build output ###
+target/
+
+### Test artifacts (run-based output: logs, screenshots, videos, allure) ###
+test-output/
+allure-results/
+allure-report/
+*.log
+*.mp4
+
+### Sensitive / machine-specific config (see *.example files) ###
+src/main/resources/secrets.properties
+src/main/resources/config.properties
+*.local.properties
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+
+### Claude Code ###
+.claude/
+
+### Mac OS ###
+.DS_Store
