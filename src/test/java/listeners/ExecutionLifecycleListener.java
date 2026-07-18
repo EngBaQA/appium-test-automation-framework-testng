@@ -1,9 +1,10 @@
-package qa;
+package listeners;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.testng.IExecutionListener;
+import qa.RunContext;
 
 import java.io.InputStream;
 import java.nio.file.Files;

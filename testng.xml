@@ -4,7 +4,7 @@
 <suite name="Mobile Automation Suite" parallel="tests" thread-count="2">
 
     <listeners>
-        <listener class-name="qa.ExecutionLifecycleListener"/>
+        <listener class-name="listeners.ExecutionLifecycleListener"/>
         <listener class-name="listeners.SuiteListener"/>
         <listener class-name="listeners.TestListener"/>
         <listener class-name="listeners.AllureRunListener"/>
