@@ -512,5 +512,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 **Engin Başaran**
 Senior Software QA & Test Automation Engineer
-
-18+ years in software testing; led QA teams and built automation frameworks from scratch.
