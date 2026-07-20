@@ -29,15 +29,18 @@ public final class AllureEnvironmentWriter {
 
         Properties config = loadConfig();
 
+        // Property keys must not contain spaces: java.util.Properties ends a
+        // key at the first unescaped space, which collapses "Configured X"
+        // entries into a single "Configured" key in the report.
         Map<String, String> env = new LinkedHashMap<>();
         env.put("RunID", RunContext.getRunId());
-        env.put("Execution Mode", "Local Parallel");
+        env.put("Execution.Mode", "Local Parallel");
         env.put("Java", System.getProperty("java.version"));
         env.put("OS", System.getProperty("os.name") + " " + System.getProperty("os.arch"));
         env.put("Appium", fetchAppiumVersion(appiumServerUrl));
-        env.put("Configured Platforms", "Android, iOS");
-        env.put("Configured Android Device", config.getProperty("androidUdid", "unknown"));
-        env.put("Configured iOS Device", config.getProperty("iOSUdid", "unknown"));
+        env.put("Configured.Platforms", "Android, iOS");
+        env.put("Configured.Android.Device", config.getProperty("androidUdid", "unknown"));
+        env.put("Configured.iOS.Device", config.getProperty("iOSUdid", "unknown"));
 
         Path target = RunContext.getAllureResultsDirectory().resolve("environment.properties");
 
